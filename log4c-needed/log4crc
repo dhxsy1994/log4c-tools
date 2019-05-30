@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE log4c SYSTEM "">
+
+<log4c>
+
+	<config>
+		<bufsize>0</bufsize>
+		<debug level="2"/>
+		<nocleanup>0</nocleanup>
+		<reread>1</reread>
+	</config>
+
+	<!-- root category ========================================= -->
+	<category name="root" priority="notice"/>
+	<category name="mycat" priority="debug" appender="rollfile"/>
+
+	<category name="zlib" priority="notice" appender="zlib"/>
+	<category name="log4c.examples.helloworld" priority="debug" appender="stdout"/>
+
+
+	<appender name="rollfile" type="rollingfile" logdir="." prefix="Testlog" layout="dated_local" rollingpolicy="RollingPolicy"/>
+	<appender name="zlib" type="rollingfile" logdir="/tmp" prefix="Zliblog" layout="dated_local" rollingpolicy="RollingPolicy2"/>
+
+	<!-- default appenders ===================================== -->
+	<appender name="stdout" type="stream" layout="basic"/>
+	<appender name="stderr" type="stream" layout="dated"/>
+	<appender name="syslog" type="syslog" layout="basic"/>
+
+	<!-- default layouts ======================================= -->
+	<layout name="basic" type="basic"/>
+	<layout name="dated" type="dated"/>
+
+	<layout name="dated_local" type="dated_local"/>
+	<rollingpolicy name="RollingPolicy" type="sizewin" maxsize="102400" maxnum="10"/>
+	<rollingpolicy name="RollingPolicy2" type="sizewin" maxsize="1024000" maxnum="50"/>
+</log4c>

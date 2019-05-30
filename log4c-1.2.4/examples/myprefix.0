@@ -1,0 +1,2 @@
+20190327 12:51:34.125 DEBUG    six13log.log.app.application1- Debugging app 1 - loop 0
+20190327 12:51:34.125 ERROR    six13log.log.app.application1- some error from app1 at line 81 in file application_1.c - loop 0
